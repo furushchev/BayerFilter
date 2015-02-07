@@ -9,6 +9,18 @@
 #ifndef __BayerFilter__BayerFilter__
 #define __BayerFilter__BayerFilter__
 
-#include <stdio.h>
+#include <opencv2/core/core.hpp>
+#include <cstdint>
+
+namespace BayerFilter {
+    enum BayerPattern : int {
+        BG = 1,
+        GB,
+        RG,
+        GR,
+    };
+    
+    void cvtToBayerImage(const cv::Mat &src, cv::Mat &dst, BayerPattern pattern=BG);
+}
 
 #endif /* defined(__BayerFilter__BayerFilter__) */
